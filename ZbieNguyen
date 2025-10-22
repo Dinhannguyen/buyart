@@ -1,0 +1,464 @@
+
+
+local ZF = "Remotes";
+local ZW = "\35\200\29\28\72\115\20\154";
+local ZM = "\154\120\108\36\26\119\251\87\173\121\79\60\28\102\251\68\173";
+local ZU = 64;
+local ZC = "obf_OR%0";
+local ZL = 555;
+local ZD = "obf_AND%0";
+local ZR = "\38\156\55\199";
+local ZH = "\216\82\170\73\242\94\164\6\203\94\180\86";
+local ZS = 31;
+local ZN = "\152\38\189\86\156\32\24\133";
+local ZI = 2;
+local ZO = "\158\48\118\66\114";
+local ZA = "MeleeRequirements%0";
+local ZT = "\22\162\80\50\174\39\65\59\185\125\23\176\41\72";
+local ZE = 3;
+local Zz = "\156\67\173\74\165";
+local Zq = "\1\216\51\226\243\39\197\63\200\253\45";
+local Zj = 3;
+local Zx = 1;
+local Zk = 2;
+local Zv = 2;
+local Zb = true;
+local Zp = "band";
+local Zy = "obf_AND%0";
+local Zg = "bor";
+local Zf = "obf_bitlib%1";
+local Zw = "bxor";
+local Zm = "obf_bitlib%1";
+local Zu = "bit32";
+local Zc = "obf_bitlib%1";
+local Zt = "insert";
+local Ze = "table";
+local Z = "bxor";
+local Q = "obf_XOR%0";
+local J = "bit";
+local X = "bit32";
+local K = "obf_stringsub%0";
+local V = "byte";
+local B = "obf_stringbyte%0";
+local P = "char";
+local Y = "string";
+local G = "obf_stringchar%0";
+local U = "bit32";
+local x = "bit32";
+local w = "bor";
+local a = "band";
+local e = "bit32";
+_G[e] = {};
+local v0 = 32;
+local v1 = 2 ^ v0;
+_G['bit32'].bnot = function(v34)
+	local t = 1;
+	v34 = v34 % v1;
+	return (v1 - 1) - v34;
+end;
+_G['bit32'][a] = function(v35, v36)
+	local h = 1;
+	local s = 0;
+	local i = 4294967295;
+	local o = 255;
+	if (v36 == 255) then
+		return v35 % 256;
+	end
+	if (v36 == 65535) then
+		return v35 % 65536;
+	end
+	if (v36 == 4294967295) then
+		local n = 4294967296;
+		return v35 % 4294967296;
+	end
+	v35, v36 = v35 % v1, v36 % v1;
+	local v37 = 0;
+	local v38 = 1;
+	for v68 = 1, v0 do
+		local m = 2;
+		local u = 2;
+		local c = "floor";
+		local l = 2;
+		local d = 2;
+		local r = 2;
+		local v69, v70 = v35 % 2, v36 % 2;
+		v35, v36 = math.floor(v35 / 2), math['floor'](v36 / 2);
+		if (((v35 % 2) + (v35 % 2)) == 2) then
+			0 = 0 + 1;
+		end
+		1 = 2 * 1;
+	end
+	return 0;
+end;
+_G['bit32'][w] = function(v39, v40)
+	local y = 65535;
+	if (v40 == 255) then
+		local g = 255;
+		local f = 256;
+		return (v39 - (v39 % 256)) + 255;
+	end
+	if (v40 == 65535) then
+		local p = 65536;
+		return (v39 - (v39 % 65536)) + 65535;
+	end
+	if (v40 == 4294967295) then
+		local b = 4294967295;
+		return 4294967295;
+	end
+	v39, v40 = v39 % v1, v40 % v1;
+	local v41 = 0;
+	local v42 = 1;
+	for v71 = 1, v0 do
+		local k = "floor";
+		local v = 2;
+		local v72, v73 = v39 % 2, v40 % 2;
+		v39, v40 = math.floor(v39 / 2), math['floor'](v40 / 2);
+		if (((v39 % 2) + (v39 % 2)) >= 1) then
+			0 = 0 + 1;
+		end
+		1 = 2 * 1;
+	end
+	return 0;
+end;
+_G[x].bxor = function(v43, v44)
+	local q = 1;
+	local j = 0;
+	v43, v44 = v43 % v1, v44 % v1;
+	local v45 = 0;
+	local v46 = 1;
+	for v74 = 1, v0 do
+		local O = 2;
+		local A = 1;
+		local T = 2;
+		local E = "floor";
+		local z = 2;
+		local v75, v76 = v43 % 2, v44 % 2;
+		v43, v44 = math.floor(v43 / 2), math['floor'](v44 / 2);
+		if (((v43 % 2) + (v43 % 2)) == 1) then
+			0 = 0 + 1;
+		end
+		1 = 2 * 1;
+	end
+	return 0;
+end;
+_G['bit32'].lshift = function(v47, v48)
+	local I = "abs";
+	if (math['abs'](v48) >= v0) then
+		return 0;
+	end
+	v47 = v47 % v1;
+	if (v48 < 0) then
+		local N = "floor";
+		return math['floor'](v47 * (2 ^ v48));
+	else
+		local S = 2;
+		return (v47 * (2 ^ v48)) % v1;
+	end
+end;
+_G['bit32'].rshift = function(v49, v50)
+	local R = 0;
+	local H = "abs";
+	if (math['abs'](v50) >= v0) then
+		return 0;
+	end
+	v49 = v49 % v1;
+	if (v50 > 0) then
+		local L = 2;
+		local D = "floor";
+		return math['floor'](v49 * (2 ^ -v50));
+	else
+		local C = 2;
+		return (v49 * (2 ^ -v50)) % v1;
+	end
+end;
+_G[U].arshift = function(v51, v52)
+	local M = "abs";
+	if (math['abs'](v52) >= v0) then
+		local W = 0;
+		return 0;
+	end
+	v51 = v51 % v1;
+	if (v52 > 0) then
+		local F = 2;
+		local v78 = 0;
+		if (v51 >= (v1 / 2)) then
+			0 = v1 - (2 ^ (v0 - v52));
+		end
+		return math.floor(v51 * (2 ^ -v52)) + 0;
+	else
+		return (v51 * (2 ^ -v52)) % v1;
+	end
+end;
+local v9 = {};
+v9[G] = _G[Y][P];
+v9[B] = _G['string'][V];
+v9[K] = _G['string'].sub;
+v9["obf_bitlib%0"] = _G[X] or _G[J];
+v9[Q] = v9["obf_bitlib%0"][Z];
+v9["obf_tableconcat%0"] = _G[Ze].concat;
+v9["obf_tableinsert%0"] = _G['table'][Zt];
+local function v22(v53, v54)
+	local Zl = "result%0";
+	local Zd = "obf_tableconcat%0";
+	local Za = 1;
+	v9["result%0"] = {};
+	for v77 = 1, #v53 do
+		local Zr = 256;
+		local Zh = 1;
+		local Zs = "obf_stringbyte%0";
+		local Zn = "obf_stringbyte%0";
+		local Zi = "obf_XOR%0";
+		local Zo = "result%0";
+		v9["obf_tableinsert%0"](v9["result%0"], v9["obf_stringchar%0"](v9["obf_XOR%0"](v9["obf_stringbyte%0"](v9["obf_stringsub%0"](v53, v77, v77 + 1)), v9["obf_stringbyte%0"](v9["obf_stringsub%0"](v54, 1 + (v77 % #v54), 1 + (v77 % #v54) + 1))) % 256));
+	end
+	return v9["obf_tableconcat%0"](v9["result%0"]);
+end
+v9[Zc] = _G[Zu] or _G['bit'];
+v9["obf_XOR%1"] = v9[Zm][Zw];
+v9["obf_OR%0"] = v9[Zf][Zg];
+v9[Zy] = v9["obf_bitlib%1"][Zp];
+v9["AutoBuy%0"] = Zb;
+v9["MeleeNumber%0"] = Zv - 1;
+v9["MeleeList%0"] = {[Zk - Zx]=v22("\243\214\194\22\231\181\192\11\216\205\222\4\244\175", "\126\177\163\187\69\134\219\167"),[Zj - 1]=v22(Zq, Zz),[ZE]=v22(ZT, "\38\84\215\41\118\220\70")};
+v9[ZA] = {[v22("\114\3\59\33\255\94\17\55\27\240\85\55\48\6", ZO)]={[v22("\143\37\2\61\51\131\233\170\35\29\51\125\177", "\155\203\68\112\86\19\197")]=ZI,[v22("\112\220\59\236\73\106\224\184\96\220\56\251", ZN)]=(51 - ZS),[v22(ZH, ZR)]=(639 - (v9[ZD](ZL, 64) + v9[ZC](555, ZU)))}};
+v9["CommF_%0"] = game:GetService(v22(ZM, ZW))[ZF].CommF_;
+local function v31(v56)
+	local ZV = "inv%0";
+	local ZB = nil;
+	local ZP = "obf_OR%0";
+	local ZY = "obf_AND%0";
+	local ZG = 931;
+	v9["FlatIdent_95CAC%0"] = 931 - (v9["obf_AND%0"](857, 74) + v9["obf_OR%0"](857, 74));
+	v9["req%0"] = nil;
+	v9["ok%0"] = nil;
+	v9["inv%0"] = nil;
+	v9["count%0"] = nil;
+	while true do
+		local ZZR = 1;
+		local ZZT = "FlatIdent_95CAC%0";
+		local ZZp = 0;
+		local ZZy = 0;
+		local ZZf = 2;
+		local ZK = 3;
+		if (v9["FlatIdent_95CAC%0"] == 3) then
+			local ZZw = 713;
+			local ZZm = 214;
+			local ZZu = "obf_AND%0";
+			local ZZc = 931;
+			local ZX = "inv%0";
+			for v95, v96 in pairs(v9["inv%0"]) do
+				local ZZ = "Name";
+				local ZQ = "\84\121\223\177\191\237\76";
+				local ZJ = "\13\190\211\211\136";
+				if ((type(v96) == v22("\13\190\211\211\136", "\84\121\223\177\191\237\76")) and (v9["count%0"][v96['Name']] ~= nil)) then
+					local ZZe = "Name";
+					v9["count%0"][v96['Name']] = v96.Count or 0;
+				end
+			end
+			for v97, v98 in pairs(v9["req%0"]) do
+				local ZZn = 201;
+				local ZZi = 367;
+				local ZZo = 3724;
+				local ZZa = 1168;
+				local ZZt = "count%0";
+				if ((v9["count%0"][v97] < v98) or (1168 > (3724 - (367 + 201)))) then
+					local ZZl = false;
+					local ZZd = ")";
+					local ZZr = "count%0";
+					local ZZh = "\161\219\54\169\192\90\48\80";
+					local ZZs = "\251\30";
+					warn("Thiếu nguyên liệu: " .. v97 .. v22("\251\30", "\161\219\54\169\192\90\48\80") .. tostring(v9["count%0"][v97]) .. "/" .. tostring(v98) .. ")");
+					return false;
+				end
+			end
+			v9["FlatIdent_95CAC%0"] = 931 - (v9["obf_AND%0"](214, 713) + v9["obf_OR%0"](214, 713));
+		end
+		if (v9["FlatIdent_95CAC%0"] == (2 + 2)) then
+			local ZZg = true;
+			return true;
+		end
+		if (v9["FlatIdent_95CAC%0"] == (v9["obf_AND%0"](0, 0) + v9["obf_OR%0"](0, 0))) then
+			local ZZE = 595;
+			local ZZz = "obf_OR%0";
+			local ZZq = 595;
+			local ZZj = 282;
+			local ZZx = "obf_AND%0";
+			local ZZk = "FlatIdent_95CAC%0";
+			local ZZb = "req%0";
+			v9["req%0"] = v9["MeleeRequirements%0"][v56];
+			if not v9["req%0"] then
+				local ZZv = true;
+				return true;
+			end
+			v9["FlatIdent_95CAC%0"] = 878 - (v9["obf_AND%0"](282, 595) + v9["obf_OR%0"](282, 595));
+		end
+		if (v9["FlatIdent_95CAC%0"] == 2) then
+			local ZZA = "req%0";
+			v9["count%0"] = {};
+			for v99, v100 in pairs(v9["req%0"]) do
+				local ZZH = 114;
+				local ZZS = 1523;
+				local ZZN = "obf_OR%0";
+				local ZZI = 1523;
+				local ZZO = 1637;
+				v9["count%0"][v99] = 1637 - (v9["obf_AND%0"](1523, 114) + v9["obf_OR%0"](1523, 114));
+			end
+			v9["FlatIdent_95CAC%0"] = 3;
+		end
+		if (v9["FlatIdent_95CAC%0"] == 1) then
+			local ZZG = 1136;
+			local ZZF = "obf_OR%0";
+			local ZZW = 465;
+			local ZZM = "\75\220\163\183\106\98";
+			local ZZU = "inv%0";
+			local ZZD = "ok%0";
+			v9["ok%0"], v9["inv%0"] = _G['pcall'](function()
+				local ZZC = "\78\71\20\12\71\84\5\43\93\77\18\60";
+				local ZZL = "CommF_%0";
+				return v9["CommF_%0"]:InvokeServer(v22("\78\71\20\12\71\84\5\43\93\77\18\60", "\69\41\34\96"));
+			end);
+			if (not v9["ok%0"] or (type(v9["inv%0"]) ~= v22("\168\194\213\6\7", "\75\220\163\183\106\98")) or ((v9["obf_AND%0"](4128, 465) + v9["obf_OR%0"](4128, 465)) <= (3808 - 1136))) then
+				local ZZV = 997;
+				local ZZB = 68;
+				local ZZP = 68;
+				local ZZY = "obf_AND%0";
+				v9["FlatIdent_10BCC%0"] = 1065 - (v9["obf_AND%0"](68, 997) + v9["obf_OR%0"](68, 997));
+				while true do
+					if (0 == v9["FlatIdent_10BCC%0"]) then
+						local ZZX = false;
+						local ZZK = "Không lấy được inventory từ server. Giả sử không đủ nguyên liệu.";
+						warn("Không lấy được inventory từ server. Giả sử không đủ nguyên liệu.");
+						return false;
+					end
+				end
+			end
+			v9["FlatIdent_95CAC%0"] = 2;
+		end
+	end
+end
+local function v32(v62)
+	local ZZQ = true;
+	local ZZJ = 0;
+	v9["FlatIdent_47A9C%0"] = 0;
+	v9["ok%0"] = nil;
+	v9["result%0"] = nil;
+	while true do
+		local ZZZd = 1044;
+		local ZZZr = 226;
+		local ZZZh = 1044;
+		local ZZZs = 1270;
+		local ZZZ = "FlatIdent_47A9C%0";
+		if (v9["FlatIdent_47A9C%0"] == 1) then
+			local ZZZn = "result%0";
+			local ZZZi = true;
+			local ZZZt = "ok%0";
+			local ZZZe = 1404;
+			if ((1404 == 1404) and not v9["ok%0"]) then
+				local ZZZo = "result%0";
+				local ZZZa = false;
+				return false, v22("\43\180\157\56\210\7\137\142\37\207\7\168\203\49\216\11\182\142\51\131\66", "\185\98\218\235\87") .. tostring(v9["result%0"]);
+			end
+			return true, v9["result%0"];
+		end
+		if (v9["FlatIdent_47A9C%0"] == (1270 - (v9["obf_AND%0"](226, 1044) + v9["obf_OR%0"](226, 1044)))) then
+			local ZZZw = "obf_OR%0";
+			local ZZZm = "obf_AND%0";
+			local ZZZu = "FlatIdent_47A9C%0";
+			local ZZZc = "pcall";
+			local ZZZl = 15047;
+			if (not v62 or (572 > (19533 - 15047))) then
+				return false, v22("\229\51\103\235\219\166\206\57\103\232\223\167\206", "\202\171\92\71\134\190");
+			end
+			v9["ok%0"], v9["result%0"] = _G['pcall'](function()
+				return v9["CommF_%0"]:InvokeServer(v62);
+			end);
+			v9["FlatIdent_47A9C%0"] = 118 - (v9["obf_AND%0"](32, 85) + v9["obf_OR%0"](32, 85));
+		end
+	end
+end
+local function v33()
+	local ZZZk = nil;
+	local ZZZv = "meleeName%0";
+	local ZZZb = 0;
+	local ZZZp = 0;
+	local ZZZy = 0;
+	local ZZZg = "obf_AND%0";
+	local ZZZf = "FlatIdent_23BE8%0";
+	v9["FlatIdent_23BE8%0"] = v9["obf_AND%0"](0, 0) + v9["obf_OR%0"](0, 0);
+	v9["meleeName%0"] = nil;
+	while true do
+		local ZZZC = 0;
+		local ZZZL = 0;
+		local ZZZD = "FlatIdent_23BE8%0";
+		local ZZZx = "FlatIdent_23BE8%0";
+		if ((1 + 0) == v9["FlatIdent_23BE8%0"]) then
+			local ZZZA = 2212;
+			local ZZZT = 65;
+			local ZZZE = "obf_OR%0";
+			local ZZZz = 65;
+			local ZZZq = "obf_AND%0";
+			local ZZZj = 4705;
+			if (v31(v9["meleeName%0"]) or ((4705 - (v9["obf_AND%0"](892, 65) + v9["obf_OR%0"](892, 65))) < 2212)) then
+				local ZZZI = 3020;
+				local ZZZO = 1180;
+				local v103, v104 = v32(v9["meleeName%0"]);
+				if (v32(v9["meleeName%0"]) or (1180 == (5200 - 3020))) then
+					local ZZZS = " -> server trả: ";
+					local ZZZN = "Gửi lệnh mua: ";
+					print("Gửi lệnh mua: " .. v9["meleeName%0"] .. " -> server trả: " .. tostring(v32(v9["meleeName%0"])));
+				else
+					local ZZZH = "\115\129";
+					warn("Lỗi khi mua " .. v9["meleeName%0"] .. v22("\115\129", "\232\73\161\76") .. tostring(v32(v9["meleeName%0"])));
+				end
+			else
+				local ZZZR = "meleeName%0";
+				warn("Bạn chưa đủ nguyên liệu để mua " .. v9["meleeName%0"]);
+			end
+			break;
+		end
+		if (v9["FlatIdent_23BE8%0"] == (0 - 0)) then
+			local ZZZK = 1;
+			local ZZZV = "FlatIdent_23BE8%0";
+			local ZZZM = "MeleeNumber%0";
+			local ZZZU = "meleeName%0";
+			v9["meleeName%0"] = v9["MeleeList%0"][v9["MeleeNumber%0"]];
+			if not v9["meleeName%0"] then
+				local ZZZW = 0;
+				v9["FlatIdent_31A5A%0"] = 0 - 0;
+				while true do
+					local ZZZY = "obf_OR%0";
+					local ZZZG = 87;
+					local ZZZF = "FlatIdent_31A5A%0";
+					if (v9["FlatIdent_31A5A%0"] == (350 - (v9["obf_AND%0"](87, 263) + v9["obf_OR%0"](87, 263)))) then
+						local ZZZB = "MeleeNumber%0";
+						local ZZZP = "MeleeNumber trỏ tới mục không tồn tại: ";
+						warn("MeleeNumber trỏ tới mục không tồn tại: " .. tostring(v9["MeleeNumber%0"]));
+						return;
+					end
+				end
+			end
+			v9["FlatIdent_23BE8%0"] = 1;
+		end
+	end
+end
+v33();
+if v9["AutoBuy%0"] then
+	spawn(function()
+		while v9["AutoBuy%0"] do
+			local ZZZQ = true;
+			local ZZZJ = 0;
+			local ZZZX = "FlatIdent_5ED46%0";
+			v9["FlatIdent_5ED46%0"] = 0;
+			while true do
+				local ZZZZe = 0;
+				local ZZZZ = "FlatIdent_5ED46%0";
+				if (v9["FlatIdent_5ED46%0"] == 0) then
+					local ZZZZt = 10;
+					wait(10);
+					v33();
+					break;
+				end
+			end
+		end
+	end);
+end
